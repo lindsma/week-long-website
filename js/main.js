@@ -19,7 +19,8 @@ var dogObject = {
             'crossDomain': true,
             'datatype': 'jsonp',
             'headers': {
-              'content-type': 'application/json'
+              'content-type': 'application/json',
+              'Access-Control-Allow-Credentials': true 
             },
             'success': function(data) {
                 console.log(data);
