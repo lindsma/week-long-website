@@ -3,7 +3,6 @@ var dogObject = {
     // petfinder user info
     user: {
         'apiKey': '4f01f039570c23dcada9bb6dc86bda5b',
-        'shaOne': '40e0a964a8d4d5d5e1faf45c85c36a92c283d0f8',
         'mdFive': '69c82dba5c426946f2f827d9197ddb97',
         'token': null
 
@@ -11,16 +10,16 @@ var dogObject = {
     },
 
     createSession: function() {
-        // request access token
+        // request access token        
         $.ajax({
             'method': 'GET',
-            'url': 'https://api.petfinder.com/auth.getToken?key=' + this.user.apiKey + '&sig=' + this.user.shaOne,
+            'url': 'https://api.petfinder.com/auth.getToken?key=' + this.user.apiKey + '&sig=' + this.user.mdFive,
             'data': {},
             'crossDomain': true,
             'datatype': 'jsonp',
             'headers': {
               'content-type': 'application/json',
-              'Access-Control-Allow-Credentials': true 
+              'Access-Control-Allow-Credentials': true,
             },
             'success': function(data) {
                 console.log(data);
