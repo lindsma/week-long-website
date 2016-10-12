@@ -2,15 +2,13 @@ var dogObject = {
 
     // petfinder user info
     user: {
-        'apiKey': '4f01f039570c23dcada9bb6dc86bda5b',
-        'mdFive': '69c82dba5c426946f2f827d9197ddb97',
+        'apiKey': '0832500a5ec7269caa8dc84a045e3995',
+        'mdFive': '34400da3787610ce6197b06beaab3909',
         'token': null
-
-
     },
 
     createSession: function() {
-        // request access token        
+        // request access token
         $.ajax({
             'method': 'GET',
             'url': 'https://api.petfinder.com/auth.getToken?key=' + this.user.apiKey + '&sig=' + this.user.mdFive,
