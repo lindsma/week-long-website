@@ -14,7 +14,7 @@ var dogObject = {
         // request access token
         $.ajax({
             'method': 'GET',
-            'url': 'http://api.petfinder.com/auth.getToken?key=' + this.user.apiKey + '&sig=' + this.user.shaOne,
+            'url': 'https://api.petfinder.com/auth.getToken?key=' + this.user.apiKey + '&sig=' + this.user.shaOne,
             'data': {},
             'crossDomain': true,
             'datatype': 'jsonp',
