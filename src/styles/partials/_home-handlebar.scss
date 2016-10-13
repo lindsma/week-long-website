@@ -1,74 +1,85 @@
 .center-container {
-    margin: 75px auto;
-    height: 685.73px;
-    width: 460px;
+    margin: 20px 0 0 140px;
+    height: 87%;
+    width: 355px;
     position: relative;
     float: left;
 }
 .hexagon-container {
     .one-container {
       position: absolute;
-      top: 25px;
-      left: 25.5%;
+      top: 4%;
+      left: 26.5%;
     }
     .two-container {
       position: absolute;
       left: 0;
-      top: 33%;
+      top: 33.5%;
     }
     .three-container {
       position: absolute;
       right: 0;
-      top: 33%;
+      top: 33.5%;
     }
     .four-container {
       position: absolute;
       bottom: 0;
-      left: 25.5%;
+      left: 26.5%;
     }
 }
 // hexagon structure
 .hexagon {
     position: relative;
-    width: 225px;
-    height: 129.91px;
-    background-color: #64C7CC;
-    margin: 64.95px 0;
+    width: 168.75px;
+    height: 97.43px;
+    background-color: $hexagonBackgroundColor;
+    margin: 48.71px 0;
     &:after,
     &:before {
         content: "";
         position: absolute;
         width: 0;
-        border-left: 112.5px solid transparent;
-        border-right: 112.5px solid transparent;
+        border-left: 84.38px solid transparent;
+        border-right: 84.38px solid transparent;
     }
     &:before {
         bottom: 100%;
-        border-bottom: 64.95px solid #64C7CC;
+        border-bottom: 48.71px solid $hexagonBackgroundColor;
     }
     &:after {
         top: 100%;
         width: 0;
-        border-top: 64.95px solid #64C7CC;
+        border-top: 48.71px solid $hexagonBackgroundColor;
     }
     &:hover {
-      background-color: green;
+      background-color: $navbarColor;
       &:after,
       &:before {
           content: "";
           position: absolute;
           width: 0;
-          border-left: 112.5px solid transparent;
-          border-right: 112.5px solid transparent;
+          border-left: 84.38px solid transparent;
+          border-right: 84.38px solid transparent;
       }
       &:before {
           bottom: 100%;
-          border-bottom: 64.95px solid green;
+          border-bottom: 48.71px solid $navbarColor;
       }
       &:after {
           top: 100%;
           width: 0;
-          border-top: 64.95px solid green;
+          border-top: 48.71px solid $navbarColor;
       }
+      p {
+        color: $hexagonBackgroundColor;
+      }
+    }
+
+    p {
+      color: $navbarColor;
+      font-family: $headingsFont;
+      line-height: 97.43px;
+      text-align: center;
+      font-size: 25px;
     }
 }
