@@ -2,14 +2,27 @@ nav {
     background: $navbarColor;
     height: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
 
-    li {
-        float: left;
-        width: 33%;
-        text-align: center;
-        font-size: 20px;
-        padding-top: 8px;
-        font-family: $headingsFont;
-        font-weight: bold;
+    img {
+        width: 80px;
+        z-index: 5;
+    }
+
+    ul {
+        float: right;
+        list-style: none;
+        overflow: hidden;
+        width: 90%;
+
+        li {
+            float: left;
+            width: 33%;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 8px;
+            font-family: $headingsFont;
+            font-weight: bold;
+        }
     }
 }

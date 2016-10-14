@@ -5,35 +5,39 @@
     position: relative;
     float: left;
 }
-.hexagon-container {
-    .one-container {
-      position: absolute;
-      top: 4%;
-      left: 26.5%;
-    }
-    .two-container {
-      position: absolute;
-      left: 0;
-      top: 33.5%;
-    }
-    .three-container {
-      position: absolute;
-      right: 0;
-      top: 33.5%;
-    }
-    .four-container {
-      position: absolute;
-      bottom: 0;
-      left: 26.5%;
-    }
+
+.one-container {
+    position: absolute;
+    top: 4%;
+    left: 26.5%;
+}
+
+.two-container {
+    position: absolute;
+    left: 0;
+    top: 33.5%;
+}
+
+.three-container {
+    position: absolute;
+    right: 0;
+    top: 33.5%;
+}
+
+.four-container {
+    position: absolute;
+    bottom: 0;
+    left: 26.5%;
 }
 // hexagon structure
+
 .hexagon {
     position: relative;
     width: 168.75px;
     height: 97.43px;
     background-color: $hexagonBackgroundColor;
     margin: 48.71px 0;
+
     &:after,
     &:before {
         content: "";
@@ -42,44 +46,52 @@
         border-left: 84.38px solid transparent;
         border-right: 84.38px solid transparent;
     }
+
     &:before {
         bottom: 100%;
         border-bottom: 48.71px solid $hexagonBackgroundColor;
     }
+
     &:after {
         top: 100%;
         width: 0;
         border-top: 48.71px solid $hexagonBackgroundColor;
     }
+
     &:hover {
-      background-color: $navbarColor;
-      &:after,
-      &:before {
-          content: "";
-          position: absolute;
-          width: 0;
-          border-left: 84.38px solid transparent;
-          border-right: 84.38px solid transparent;
-      }
-      &:before {
-          bottom: 100%;
-          border-bottom: 48.71px solid $navbarColor;
-      }
-      &:after {
-          top: 100%;
-          width: 0;
-          border-top: 48.71px solid $navbarColor;
-      }
-      p {
-        color: $hexagonBackgroundColor;
-      }
+        background-color: $navbarColor;
+
+        &:after,
+        &:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 84.38px solid transparent;
+            border-right: 84.38px solid transparent;
+        }
+
+        &:before {
+            bottom: 100%;
+            border-bottom: 48.71px solid $navbarColor;
+        }
+
+        &:after {
+            top: 100%;
+            width: 0;
+            border-top: 48.71px solid $navbarColor;
+        }
+
+        p {
+            color: $hexagonBackgroundColor;
+        }
     }
 
-    p {
-      color: $navbarColor;
-      font-family: $headingsFont;
-      line-height: 97.43px;
-      text-align: center;
-      font-size: 25px;
+    a {
+        color: $navbarColor;
+        font-family: $headingsFont;
+        line-height: 97.43px;
+        text-align: center;
+        font-size: 25px;
+        text-decoration: none;
     }
 }

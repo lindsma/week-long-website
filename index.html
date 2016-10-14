@@ -1,53 +1,82 @@
 <!doctype html>
-<html lang="en">
-
+<html lang='en'>
 <head>
     <title>HomewardHound</title>
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald|Poppins|Raleway|Roboto+Slab" rel="stylesheet">
-    <link rel="stylesheet" href="lib/styles/main.min.css">
-    <link rel="icon" type="image/png" href="images/dog_icon.jpg">
+    <link href='https://fonts.googleapis.com/css?family=Cabin|Oswald|Poppins|Raleway|Roboto+Slab' rel='stylesheet'>
+    <link rel='stylesheet' href='lib/styles/main.min.css'>
+    <link rel='icon' type='image/png' href='images/dog_icon.jpg'>
 </head>
-
 <body>
-
     <!-- Content goes here -->
     <header>
-      <nav>
-          <ul>
-              <li>nav item#1</li>
-              <li>nav item#2</li>
-              <li>nav item#3</li>
-          </ul>
-      </nav>
+        <nav>
+            <img class='icon' src='images/dog_icon.jpg' />
+            <ul>
+                <li>nav item#1</li>
+                <li>nav item#2</li>
+                <li>nav item#3</li>
+            </ul>
+        </nav>
     </header>
-    <section id='hero'>
-    </section>
-
-    <main>
+    <main class='content'>
     </main>
-
-    <!-- <script id="home-template" type="text/x-handlebars-template"> -->
-    <section class='center-container'>
-        <div class='hexagon-container'>
-            <div class='one-container'>
-                <div class='hexagon one'><p>Toys</p></div>
+    <!-- Handlebars - Homepage -->
+    <script id="home-template" type="text/x-handlebars-template">
+        <section class='center-container'>
+            <div class='one-container menu' id='toys'>
+                <div class='hexagon one'>
+                    <a href='#'>
+                        <p>Toys</p>
+                    </a>
+                </div>
             </div>
-            <div class='two-container'>
-                <div class='hexagon two'><p>Accessories</p></div>
+            <div class='two-container menu' id='accessories'>
+                <div class='hexagon two'>
+                    <a href='#'>
+                        <p>Accessories</p>
+                    </a>
+                </div>
             </div>
-            <div class='three-container'>
-                <div class='hexagon three'><p>Costumes</p></div>
+            <div class='three-container menu' id='costumes'>
+                <div class='hexagon three'>
+                    <a href='#'>
+                        <p>Costumes</p>
+                    </a>
+                </div>
             </div>
-            <div class='four-container'>
-                <div class='hexagon four'><p>Adopt!</p></div>
+            <div class='four-container menu' id='adopt'>
+                <div class='hexagon four'>
+                    <a href='#'>
+                        <p>Adopt!</p>
+                    </a>
+                </div>
             </div>
+        </section>
+    </script>
+    <!-- Handlebars - category pages -->
+    <script id="category-template" type="text/x-handlebars-template">
+      <section class='hero'>
+        <div class='etsy-card'>
+          <h3>{{title}}</h3>
+          <img src='{{image}}'/>
+          <ul class='item-info'>
+          <li>{{description}}</li>
+          <li class='price'>{{price}}</li>
+          <li class='etsy-url'><a href='#'>{{url}}</a></li>
         </div>
-    </section>
-    <!-- </script> -->
+      </section>
+    </script>
+
+    <!-- Handlebars - error page -->
+    <!-- <script id="error-template" type="text/x-handlebars-template">
+    </script> -->
+
+    <!-- Handlebars - error page -->
+    <!-- <script id="loading-template" type="text/x-handlebars-template">
+    </script> -->
 
 
-
-    <script src="lib/js/main.min.js"></script>
+    <script src='lib/js/main.min.js'></script>
 </body>
 
 </html>

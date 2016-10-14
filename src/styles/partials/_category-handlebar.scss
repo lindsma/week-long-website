@@ -1,0 +1,28 @@
+.hero {
+  height: 360px;
+}
+
+.etsy-card {
+  width: 200px;
+  height: 250px;
+  // background: red;
+  margin: 50px 20px;
+  font-family: $headingsFont;
+
+  li {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  h3 {
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  img {
+    width: 150px;
+    margin-left: 25px;
+    border: 2px solid black;
+  }
+
+}
