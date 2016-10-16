@@ -1,24 +1,29 @@
 <!doctype html>
 <html lang='en'>
+
 <head>
-    <title>HomewardHound</title>
+    <title>Petsy</title>
     <link href='https://fonts.googleapis.com/css?family=Cabin|Oswald|Poppins|Raleway|Roboto+Slab' rel='stylesheet'>
     <link rel='stylesheet' href='lib/styles/main.min.css'>
     <link rel='icon' type='image/png' href='images/dog_icon.jpg'>
 </head>
+
 <body>
     <!-- Content goes here -->
     <header>
         <nav>
             <img class='icon' src='images/dog_icon.jpg' />
-            <ul>
-                <li>nav item#1</li>
-                <li>nav item#2</li>
-                <li>nav item#3</li>
+            <ul class='navbar'>
+                <li class='nav-item'><a href='#'>Toys</a></li>
+                <li class='nav-item'><a href='#'>Accessories</a></li>
+                <li class='nav-item'><a href='#'>Costumes</a></li>
+                <li class='nav-item'><a href='#'>Adopt</a></li>
             </ul>
         </nav>
     </header>
-    <main class='content'>
+    <main class='content home'>
+      <section class='handlebar'>
+      </section>
     </main>
     <!-- Handlebars - Homepage -->
     <script id="home-template" type="text/x-handlebars-template">
@@ -47,31 +52,50 @@
             <div class='four-container menu' id='adopt'>
                 <div class='hexagon four'>
                     <a href='#'>
-                        <p>Adopt!</p>
+                        <p>Adopt</p>
                     </a>
                 </div>
             </div>
         </section>
     </script>
-    <!-- Handlebars - category pages -->
+    <!-- Handlebars - category [toys, accessories, costumes] pages -->
     <script id="category-template" type="text/x-handlebars-template">
-      <section class='hero'>
         <div class='etsy-card'>
-          <h3>{{title}}</h3>
-          <img src='{{image}}'/>
-          <ul class='item-info'>
-          <li>{{description}}</li>
-          <li class='price'>{{price}}</li>
-          <li class='etsy-url'><a href='#'>{{url}}</a></li>
+            <h3>{{title}}</h3>
+            <img src='{{image}}' />
+            <ul class='item-info'>
+                <li>{{descriptionSplit}}.</li>
+                <li class='price'>${{price}}</li>
+                <li class='etsy-url'><a href='{{url}}'>Buy Now</a></li>
         </div>
-      </section>
+    </script>
+    <!-- Handlebars - adopt page -->
+    <script id="adopt-template" type="text/x-handlebars-template">
+        <div class='petfinder-card'>
+            <h3>{{name}}</h3>
+            <img src='{{image}}' />
+            <ul class='item-info'>
+                <li>Breed: {{breed}}</li>
+                <li class='price'>Age: {{age}}</li>
+                <li class='petfinder-url'><a href='{{url}}'>Adopt Me</a></li>
+        </div>
     </script>
 
     <!-- Handlebars - error page -->
-    <!-- <script id="error-template" type="text/x-handlebars-template">
-    </script> -->
+    <script id="error-template" type="text/x-handlebars-template">
+        <div class="error-container">
+            <ul class="error-list">
+                <li class="error-image"><img src="styles/images/red_elephant_error.png" alt="elephant-error" /></li>
+                <li class="error-header">
+                    <h1>{{errorType}}</h1></li>
+                <li>
+                    <p class="error-message">{{errorMessage}}</p>
+                </li>
+            </ul>
+        </div>
+    </script>
 
-    <!-- Handlebars - error page -->
+    <!-- Handlebars - loading page -->
     <!-- <script id="loading-template" type="text/x-handlebars-template">
     </script> -->
 

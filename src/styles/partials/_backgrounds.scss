@@ -1,0 +1,25 @@
+.home, .hero {
+  background-size: cover;
+}
+
+.home {
+  background-image: url('../../images/home.jpg');
+}
+
+.hero {
+  height: 400px;
+  background-position: center;
+
+  &.toys {
+    background-image: url('../../images/toys.jpg');
+  }
+  &.adopt {
+    background-image: url('../../images/adopt.jpg');
+  }
+  &.accessories {
+    background-image: url('../../images/accessories.jpg');
+  }
+  &.costumes {
+    background-image: url('../../images/costumes.jpg');
+  }
+}

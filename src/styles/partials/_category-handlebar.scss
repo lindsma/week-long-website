@@ -1,13 +1,9 @@
-.hero {
-  height: 360px;
-}
-
 .etsy-card {
   width: 200px;
   height: 250px;
-  // background: red;
   margin: 50px 20px;
   font-family: $headingsFont;
+  float: left;
 
   li {
     margin-left: 10px;
