@@ -116,7 +116,16 @@ var dogObject = (function() {
     // initiate page and fill homepage with home-template
     function init() {
         populateHandlebars('home-template');
+
+        // if (window.location.hash.length > 0) {
+        //   switch (hash) {
+        //     case '#home':
+        //     $('#top').empty();
+        //     updateHash('home');
+        //   }
+        // }
         $('main').on('click', '.menu', function(event) {
+            event.preventDefault();
             $('a').removeClass('active');
             $('main').removeClass('home');
             var searchTerms = $(this).attr('id');
@@ -128,6 +137,7 @@ var dogObject = (function() {
             getEtsy(searchTerms);
         });
         $('nav').on('click', '.nav-item', function(event) {
+            event.preventDefault();
             $('a').removeClass('active');
             $('main').removeClass('home');
             $(this).children().addClass('active');
@@ -141,6 +151,7 @@ var dogObject = (function() {
             getEtsy(page);
         });
         $('main').on('click', '#adopt, .nav-item-adopt', function(event) {
+            event.preventDefault();
             $('a').removeClass('active');
             $('main').removeClass('home');
             $('<section>').attr('class', 'hero adopt').prependTo('main');
@@ -151,6 +162,7 @@ var dogObject = (function() {
             getPetfinder();
         });
         $('.icon').click(function(event) {
+            event.preventDefault();
             $('main').addClass('home');
             $('.hero').remove();
             $('.handlebar').empty().removeClass('active');
