@@ -10,6 +10,14 @@
   margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
+  @include media(desktop) {
+    height: 300px;
+  }
+
+  @include media(tablet) {
+    height: 200px;
+  }
+
   &.toys {
     background-image: url('../../images/toys.jpg');
   }

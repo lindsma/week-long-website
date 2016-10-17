@@ -15,8 +15,10 @@ var dogObject = (function() {
                 'content-type': 'application/json'
             },
             'success': function(data) {
+                var newData = data.petfinder.pets.pet;
                 for (var index = 0; index < 12; index++) {
-                    new adoptionCards(data.results[index]);
+                    console.log(newData);
+                    new adoptionCards(newData[index]);
                 }
             },
             'error': handleError
@@ -33,7 +35,6 @@ var dogObject = (function() {
             'dataType': 'jsonp',
             'success': function(data) {
                 var newData = data.results;
-                console.log(newData);
                 for (var index = 0; index < 12; index++) {
                     new etsyCards(newData[index]);
                 }
@@ -54,7 +55,7 @@ var dogObject = (function() {
             var template = Handlebars.compile(source);
             var context = this.info;
             var html = template(context);
-            $(html).prependTo('.handlebar');
+            $('.handlebar').prepend(html).fadeIn();
             var category = $('.menu').attr('id');
             $('.hero').addClass(category);
             $('.handlebar').addClass('active');
@@ -62,26 +63,25 @@ var dogObject = (function() {
         this.createCards();
     }
     // search result card constructor and category-template creation
-    // function adoptionCards(searchObject) {
-    //     this.info = {
-    //         image: ,
-    //         name: ,
-    //         url: ,
-    //         age: ,
-    //         breed: ,
-    //     };
-    //     this.createCards = function() {
-    //         var source = $('#category-template').html();
-    //         var template = Handlebars.compile(source);
-    //         var context = this.info;
-    //         var html = template(context);
-    //         $(html).prependTo('.handlebar');
-    //         var category = $('.menu').attr('id');
-    //         $('.hero').addClass(category);
-    //         $('.handlebar').addClass('active');
-    //     };
-    //     this.createCards();
-    // }
+    function adoptionCards(searchObject) {
+        this.info = {
+            image: searchObject.media.photos.photo[3].$t,
+            name: searchObject.name.$t,
+            age: searchObject.age.$t,
+            breed: searchObject.breeds.breed.$t,
+            url: 'https://www.petfinder.com/petdetail/' + searchObject.id.$t
+        };
+        this.createCards = function() {
+            var source = $('#adopt-template').html();
+            var template = Handlebars.compile(source);
+            var context = this.info;
+            var html = template(context);
+            $('.handlebar').prepend(html).fadeIn();
+            $('.hero').addClass('adopt');
+            $('.handlebar').addClass('active');
+        };
+        this.createCards();
+    }
     // populate handlebars
     function populateHandlebars(sourceId) {
         $('.center-container').remove();
@@ -100,7 +100,7 @@ var dogObject = (function() {
             errorType: errorObject,
         };
         var html = template(context);
-        $(html).insertBefore(".handlebar");
+        $(html).insertBefore('.handlebar');
     }
     // update url hash
     function updateHash(hash) {
@@ -141,11 +141,13 @@ var dogObject = (function() {
             getEtsy(page);
         });
         $('main').on('click', '#adopt, .nav-item-adopt', function(event) {
+            $('a').removeClass('active');
             $('main').removeClass('home');
-            $('<section>').attr('class', 'hero ' + searchTerms).prependTo('main');
+            $('<section>').attr('class', 'hero adopt').prependTo('main');
             $('.handlebar').empty();
             $('.center-container').remove();
-            $('.navbar').addClass('active');
+            $('.navbar, a.adopt').addClass('active');
+            updateHash('adopt');
             getPetfinder();
         });
         $('.icon').click(function(event) {
@@ -158,9 +160,5 @@ var dogObject = (function() {
     }
     init();
 })();
-
-
-
-// adoption handlebars
 
 // loading handlebars
