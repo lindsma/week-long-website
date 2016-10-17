@@ -1,24 +1,48 @@
+div.handlebar {
+  display: none;
+  overflow: auto;
+  &.active {
+    margin: 0 auto 20px auto;
+    padding-bottom: 20px;
+    background: rgba(156,0,1, .2);
+    display: block;
+    width: 90%;
+    border-radius: 10px;
+  }
+}
+.card-container {
+  margin: 50px auto;
+}
 .etsy-card {
-  width: 200px;
-  height: 250px;
-  margin: 50px 20px;
+  width: 250px;
+  height: 400px;
+  margin-left: 30px;
+  margin-top: 30px;
   font-family: $headingsFont;
   float: left;
-
+  position: relative;
   li {
     margin-left: 10px;
     margin-top: 10px;
+    a {
+      text-decoration: none;
+      color: $iconColor;
+    }
+    &.etsy-url {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+    }
+    &.price {
+      position: absolute;
+      bottom: 35px;
+      left: 5px;
+    }
   }
-
-  h3 {
-    text-align: center;
-    padding: 5px 0;
-  }
-
   img {
-    width: 150px;
+    width: 200px;
+    height: 200px;
     margin-left: 25px;
-    border: 2px solid black;
+    border-radius: 50%;
   }
-
 }

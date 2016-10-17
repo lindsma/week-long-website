@@ -1,0 +1,27 @@
+@mixin media($bp) {
+     @if $bp == desktop{
+        @media only screen and (max-width: 950px) {
+             @content;
+        }
+    }
+    @if $bp == tablet {
+         @media only screen and (max-width: 800px){
+            @content;
+        }
+    }
+    @if $bp == mobile {
+         @media only screen and (max-width: 650px){
+            @content;
+        }
+    }
+    @if $bp == mobile2 {
+         @media only screen and (max-width: 490px){
+            @content;
+        }
+    }
+    @if $bp == mobile3 {
+         @media only screen and (max-width: 400px){
+            @content;
+        }
+    }
+}

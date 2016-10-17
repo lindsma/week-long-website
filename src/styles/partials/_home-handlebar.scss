@@ -1,9 +1,21 @@
 .center-container {
-    margin: 20px 0 0 140px;
+    margin: 2% 0 0 10%;
     height: 87%;
     width: 355px;
     position: relative;
     float: left;
+
+    @include media(desktop) {
+      margin: 0 0 0 6%;
+    }
+
+    @include media(tablet) {
+      margin: 0 0 0 1%;
+    }
+
+    @include media(mobile3) {
+      display: none;
+    }
 }
 
 .one-container {
@@ -37,6 +49,10 @@
     height: 97.43px;
     background-color: $hexagonBackgroundColor;
     margin: 48.71px 0;
+
+    @include media(tablet) {
+      display: none;
+    }
 
     &:after,
     &:before {

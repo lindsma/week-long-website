@@ -14,16 +14,16 @@
         <nav>
             <img class='icon' src='images/dog_icon.jpg' />
             <ul class='navbar'>
-                <li class='nav-item'><a href='#'>Toys</a></li>
-                <li class='nav-item'><a href='#'>Accessories</a></li>
-                <li class='nav-item'><a href='#'>Costumes</a></li>
-                <li class='nav-item'><a href='#'>Adopt</a></li>
+                <li class='nav-item'><a class='toys' href='#'>Toys</a></li>
+                <li class='nav-item'><a class='accessories' href='#'>Accessories</a></li>
+                <li class='nav-item'><a class='costumes' href='#'>Costumes</a></li>
+                <li class='nav-item-adopt'><a class='adopt' href='#'>Adopt</a></li>
             </ul>
         </nav>
     </header>
     <main class='content home'>
-      <section class='handlebar'>
-      </section>
+        <div class='handlebar'>
+        </div>
     </main>
     <!-- Handlebars - Homepage -->
     <script id="home-template" type="text/x-handlebars-template">
@@ -49,7 +49,7 @@
                     </a>
                 </div>
             </div>
-            <div class='four-container menu' id='adopt'>
+            <div class='four-container' id='adopt'>
                 <div class='hexagon four'>
                     <a href='#'>
                         <p>Adopt</p>
@@ -60,14 +60,13 @@
     </script>
     <!-- Handlebars - category [toys, accessories, costumes] pages -->
     <script id="category-template" type="text/x-handlebars-template">
-        <div class='etsy-card'>
-            <h3>{{title}}</h3>
-            <img src='{{image}}' />
-            <ul class='item-info'>
-                <li>{{descriptionSplit}}.</li>
-                <li class='price'>${{price}}</li>
-                <li class='etsy-url'><a href='{{url}}'>Buy Now</a></li>
-        </div>
+            <div class='etsy-card'>
+                <img src='{{image}}' />
+                <ul class='item-info'>
+                    <li class='title'>{{title}}</li>
+                    <li class='price'>${{price}}</li>
+                    <li class='etsy-url'><a href='{{url}}'>Buy Now</a></li>
+            </div>
     </script>
     <!-- Handlebars - adopt page -->
     <script id="adopt-template" type="text/x-handlebars-template">
@@ -85,11 +84,11 @@
     <script id="error-template" type="text/x-handlebars-template">
         <div class="error-container">
             <ul class="error-list">
-                <li class="error-image"><img src="styles/images/red_elephant_error.png" alt="elephant-error" /></li>
+                <li class="error-image"><img src="images/error_dog.png" alt="error" /></li>
                 <li class="error-header">
                     <h1>{{errorType}}</h1></li>
                 <li>
-                    <p class="error-message">{{errorMessage}}</p>
+                    <p class="error-message">It seems you've made a terrible mistake.<br> Please try again.</p>
                 </li>
             </ul>
         </div>

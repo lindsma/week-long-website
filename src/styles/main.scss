@@ -1,11 +1,3 @@
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-html, body, main {
-  height: 100%;
-}
-
 @import 'partials/reset';
 @import 'partials/variables';
 @import 'partials/mixins';
@@ -13,3 +5,13 @@ html, body, main {
 @import 'partials/backgrounds';
 @import 'partials/home-handlebar';
 @import 'partials/category-handlebar';
+@import 'partials/errors';
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html, body, main {
+  height: 100%;
+  background-color: $navbarColor;
+}
