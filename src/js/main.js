@@ -9,7 +9,7 @@ var dogObject = (function() {
         // pet search request to petfinder
         $.ajax({
             'method': 'GET',
-            'url': 'http://api.petfinder.com/pet.find?key=' + apiKey + '&format=json&location=' + city + '%2C+' + state + '&animal=dog&breed=' + breed,
+            'url': 'https://api.petfinder.com/pet.find?key=' + apiKey + '&format=json&location=' + city + '%2C+' + state + '&animal=dog&breed=' + breed,
             'data': {},
             'dataType': 'jsonp',
             'contentType': 'application/json; charset=utf-8',
