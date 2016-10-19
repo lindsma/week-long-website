@@ -1,7 +1,12 @@
 @mixin media($bp) {
-     @if $bp == desktop{
-        @media only screen and (max-width: 950px) {
+     @if $bp == desktopLarge {
+        @media only screen and (max-width: 1200px) {
              @content;
+        }
+    }
+    @if $bp == desktop {
+         @media only screen and (max-width: 950px){
+            @content;
         }
     }
     @if $bp == tablet {

@@ -1,13 +1,15 @@
 var dogObject = (function() {
     // call petfinder API
-    function getPetfinder() {
+    function getPetfinder(context) {
         // petfinder user info
         var apiKey = '0832500a5ec7269caa8dc84a045e3995';
-        // var searchTerms = 'durham';
+        var city = context.city;
+        var state = context.state;
+        var breed = context.breed;
         // pet search request to petfinder
         $.ajax({
             'method': 'GET',
-            'url': 'http://api.petfinder.com/pet.find?key=' + apiKey + '&format=json&location=durham%2C+nc&animal=dog&breed=boxer',
+            'url': 'http://api.petfinder.com/pet.find?key=' + apiKey + '&format=json&location=' + city + '%2C+' + state + '&animal=dog&breed=' + breed,
             'data': {},
             'dataType': 'jsonp',
             'contentType': 'application/json; charset=utf-8',
@@ -17,7 +19,6 @@ var dogObject = (function() {
             'success': function(data) {
                 var newData = data.petfinder.pets.pet;
                 for (var index = 0; index < 12; index++) {
-                    console.log(newData);
                     new adoptionCards(newData[index]);
                 }
             },
@@ -46,7 +47,7 @@ var dogObject = (function() {
     function etsyCards(searchObject) {
         this.info = {
             image: searchObject.Images[0].url_570xN,
-            title: searchObject.title,
+            title: decodeURIComponent(searchObject.title.substr(0, 50)),
             url: searchObject.url,
             price: searchObject.price,
         };
@@ -78,9 +79,26 @@ var dogObject = (function() {
             var html = template(context);
             $('.handlebar').prepend(html).fadeIn();
             $('.hero').addClass('adopt');
-            $('.handlebar').addClass('active');
+            $('.handlebar').addClass('active adopt');
         };
         this.createCards();
+    }
+    // create searchbar for adoption pages
+    function createSearchbar() {
+        var hero = $('<section>').attr('class', 'hero adopt').prependTo('main');
+        var source = $('#search').html();
+        var template = Handlebars.compile(source);
+        var html = template();
+        $(html).insertAfter('.hero');
+    }
+    // get searchbar info
+    function formValues() {
+        var context = {
+            breed: $('#breed').val(),
+            city: $('#city').val(),
+            state: $('#state').val()
+        };
+        return context;
     }
     // populate handlebars
     function populateHandlebars(sourceId) {
@@ -93,7 +111,6 @@ var dogObject = (function() {
     }
     // populate error handlebars template
     function populateErrors(errorObject) {
-        console.log('hi');
         var source = $('#error-template').html();
         var template = Handlebars.compile(source);
         var context = {
@@ -101,10 +118,6 @@ var dogObject = (function() {
         };
         var html = template(context);
         $(html).insertBefore('.handlebar');
-    }
-    // update url hash
-    function updateHash(hash) {
-        window.location.hash = hash;
     }
     // handle errors
     function handleError(errorObject, textStatus, error) {
@@ -116,14 +129,6 @@ var dogObject = (function() {
     // initiate page and fill homepage with home-template
     function init() {
         populateHandlebars('home-template');
-
-        // if (window.location.hash.length > 0) {
-        //   switch (hash) {
-        //     case '#home':
-        //     $('#top').empty();
-        //     updateHash('home');
-        //   }
-        // }
         $('main').on('click', '.menu', function(event) {
             event.preventDefault();
             $('a').removeClass('active');
@@ -131,9 +136,9 @@ var dogObject = (function() {
             var searchTerms = $(this).attr('id');
             $('<section>').attr('class', 'hero ' + searchTerms).prependTo('main');
             $('.handlebar').empty();
-            $('.center-container').remove();
+            $('.center-container, .searchbar').remove();
             $('.navbar, a.' + searchTerms).addClass('active');
-            updateHash(searchTerms);
+            window.location.hash = searchTerms;
             getEtsy(searchTerms);
         });
         $('nav').on('click', '.nav-item', function(event) {
@@ -143,34 +148,38 @@ var dogObject = (function() {
             $(this).children().addClass('active');
             var searchTerms = $(this).text();
             var page = searchTerms.toLowerCase();
-            $('.hero').remove();
-            $('.handlebar').empty();
-            $('.center-container').remove();
+            $('.hero, .center-container, .searchbar').remove();
+            $('.handlebar').empty().removeClass('adopt');
             $('<section>').attr('class', 'hero ' + page).prependTo('main');
-            updateHash(page);
+            window.location.hash = page;
             getEtsy(page);
         });
-        $('main').on('click', '#adopt, .nav-item-adopt', function(event) {
+        $('main, nav').on('click', '#adopt, .nav-item-adopt', function(event) {
             event.preventDefault();
             $('a').removeClass('active');
             $('main').removeClass('home');
-            $('<section>').attr('class', 'hero adopt').prependTo('main');
-            $('.handlebar').empty();
-            $('.center-container').remove();
+            $('.handlebar').empty().removeClass('active');
+            $('.center-container, .hero, .searchbar').remove();
             $('.navbar, a.adopt').addClass('active');
-            updateHash('adopt');
-            getPetfinder();
+            window.location.hash = 'adopt';
+            createSearchbar();
         });
         $('.icon').click(function(event) {
             event.preventDefault();
             $('main').addClass('home');
-            $('.hero').remove();
+            $('a').removeClass('active');
+            $('.hero, .searchbar').remove();
             $('.handlebar').empty().removeClass('active');
             $('.navbar').removeClass('active');
+            window.location.hash = 'home';
             populateHandlebars('home-template');
         });
+        $('main').on('submit', 'form', function() {
+            $('.handlebar').empty().removeClass('active, adopt');
+            getPetfinder(formValues());
+            $('input[type=text]').val('');
+        });
     }
+    window.location.hash = 'home';
     init();
 })();
-
-// loading handlebars

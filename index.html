@@ -6,7 +6,7 @@
     <link href='https://fonts.googleapis.com/css?family=Cabin|Oswald|Poppins|Raleway|Roboto+Slab' rel='stylesheet'>
     <link rel='stylesheet' href='lib/styles/main.min.css'>
     <link rel='icon' type='image/png' href='images/dog_icon.jpg'>
-    <meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -61,13 +61,13 @@
     </script>
     <!-- Handlebars - category [toys, accessories, costumes] pages -->
     <script id="category-template" type="text/x-handlebars-template">
-            <div class='etsy-card'>
-                <img src='{{image}}' />
-                <ul class='item-info'>
-                    <li class='title'>{{title}}</li>
-                    <li class='price'>${{price}}</li>
-                    <li class='etsy-url'><a href='{{url}}'>Buy Now</a></li>
-            </div>
+        <div class='etsy-card'>
+            <img src='{{image}}' />
+            <ul class='item-info'>
+                <li class='title'>{{title}}</li>
+                <li class='price'>${{price}}</li>
+                <li class='etsy-url'><a href='{{url}}'>Buy Now</a></li>
+        </div>
     </script>
     <!-- Handlebars - adopt page -->
     <script id="adopt-template" type="text/x-handlebars-template">
@@ -78,6 +78,24 @@
                 <li class='breed'>Breed: {{breed}}</li>
                 <li class='age'>Age: {{age}}</li>
                 <li class='petfinder-url'><a href='{{url}}'>Adopt Me</a></li>
+        </div>
+    </script>
+
+    <!-- Handlebars - searchbar on adopt page-->
+    <script id="search" type="text/x-handlebars-template">
+        <div class='searchbar'>
+            <form>
+                <ul>
+                    <li><label for='breed'>Breed</label>
+                    <input id='breed' type='text'></li>
+                    <li><label for='city'>City</label>
+                    <input id='city' type='text'></li>
+                    <li><label for='state'>State</label>
+                    <input id='state' type='text'></li>
+                    <button id='submit' class='btn-submit' type='submit'>Submit</button>
+                    <!-- <input id='submit' type='submit'> -->
+                </ul>
+            </form>
         </div>
     </script>
     <!-- Handlebars - error page -->
@@ -93,9 +111,6 @@
             </ul>
         </div>
     </script>
-    <!-- Handlebars - loading page -->
-    <!-- <script id="loading-template" type="text/x-handlebars-template">
-    </script> -->
     <script src='lib/js/main.min.js'></script>
 </body>
 

@@ -75,7 +75,7 @@
     }
 
     &:hover {
-        background-color: $navbarColor;
+        background-color: $beige;
 
         &:after,
         &:before {
@@ -88,13 +88,13 @@
 
         &:before {
             bottom: 100%;
-            border-bottom: 48.71px solid $navbarColor;
+            border-bottom: 48.71px solid $beige;
         }
 
         &:after {
             top: 100%;
             width: 0;
-            border-top: 48.71px solid $navbarColor;
+            border-top: 48.71px solid $beige;
         }
 
         p {
@@ -103,7 +103,7 @@
     }
 
     a {
-        color: $navbarColor;
+        color: $beige;
         font-family: $headingsFont;
         line-height: 97.43px;
         text-align: center;

@@ -1,5 +1,5 @@
 nav {
-    background: $navbarColor;
+    background: $beige;
     height: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -62,7 +62,7 @@ nav {
               color: black;
 
               &.active {
-                color: $iconColor;
+                color: $red;
               }
             }
         }

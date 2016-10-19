@@ -1,3 +1,77 @@
+.searchbar {
+  width: 100%;
+  height: 50px;
+  background: rgba(97, 65, 38, .5);
+  margin: 0 auto 10px auto;
+  font-family: $headingsFont;
+  font-size: 30px;
+  @include media(desktop) {
+    height: 90px;
+  }
+  @include media(mobile) {
+    width: 25%;
+    height: 300px;
+    position: fixed;
+    left: 0;
+  }
+  @include media(mobile2) {
+    width: 30%;
+  }
+  form {
+    padding-left: 10px;
+    width: 100%;
+    li {
+      float: left;
+      width: 30%;
+      text-align: center;
+      line-height: 50px;
+
+      @include media(desktopLarge) {
+        font-size: 20px;
+        margin-top: 5px;
+      }
+      @include media(desktop) {
+        width: 33%;
+        line-height: 40px;
+      }
+      @include media(mobile) {
+        float: none;
+        width: 95%;
+        margin-right: 0;
+        text-align: left;
+      }
+      input {
+        height: 35px;
+        font-size: 25px;
+
+        @include media(desktopLarge) {
+          width: 70%;
+        }
+        @include media(mobile) {
+          display: block;
+          width: 85%;
+        }
+      }
+    }
+    #submit {
+      height: 30px;
+      margin-top: 10px;
+      border-radius: 20px;
+      width: 80px;
+      background: $red;
+      color: white;
+      @include media(desktop) {
+        float: right;
+        margin: 0 20px 5px 0;
+      }
+      @include media(mobile) {
+        float: none;
+        margin: 10px 20px 5px 0;
+      }
+    }
+  }
+}
+
 .petfinder-card {
   width: 250px;
   height: 320px;
@@ -6,6 +80,11 @@
   font-family: $headingsFont;
   float: left;
   position: relative;
+
+  @include media(mobile) {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
   h3 {
     text-align: center;
     padding-bottom: 15px;
@@ -15,7 +94,7 @@
     margin-top: 10px;
     a {
       text-decoration: none;
-      color: $iconColor;
+      color: $red;
     }
     &.petfinder-url {
       position: absolute;
