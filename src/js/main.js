@@ -123,7 +123,7 @@ var dogObject = (function() {
     function handleError(errorObject, textStatus, error) {
         $('.handlebar').empty();
         $('a').removeClass('active');
-        $('.center-container, .hero').remove();
+        $('.center-container, .hero, .searchbar').remove();
         populateErrors(errorObject.status);
     }
     // initiate page and fill homepage with home-template
