@@ -123,7 +123,7 @@ var dogObject = (function() {
     function handleError(errorObject, textStatus, error) {
         $('.handlebar').empty();
         $('a').removeClass('active');
-        $('.center-container, .hero, .searchbar').remove();
+        $('.center-container, .hero, .searchbar, .error-container').remove();
         populateErrors(errorObject.status);
     }
     // initiate page and fill homepage with home-template
@@ -136,7 +136,7 @@ var dogObject = (function() {
             var searchTerms = $(this).attr('id');
             $('<section>').attr('class', 'hero ' + searchTerms).prependTo('main');
             $('.handlebar').empty();
-            $('.center-container, .searchbar').remove();
+            $('.center-container, .searchbar, .error-container').remove();
             $('.navbar, a.' + searchTerms).addClass('active');
             window.location.hash = searchTerms;
             getEtsy(searchTerms);
@@ -148,7 +148,7 @@ var dogObject = (function() {
             $(this).children().addClass('active');
             var searchTerms = $(this).text();
             var page = searchTerms.toLowerCase();
-            $('.hero, .center-container, .searchbar').remove();
+            $('.hero, .center-container, .searchbar, .error-container').remove();
             $('.handlebar').empty().removeClass('adopt');
             $('<section>').attr('class', 'hero ' + page).prependTo('main');
             window.location.hash = page;
@@ -159,7 +159,7 @@ var dogObject = (function() {
             $('a').removeClass('active');
             $('main').removeClass('home');
             $('.handlebar').empty().removeClass('active');
-            $('.center-container, .hero, .searchbar').remove();
+            $('.center-container, .hero, .searchbar, .error-container').remove();
             $('.navbar, a.adopt').addClass('active');
             window.location.hash = 'adopt';
             createSearchbar();
@@ -168,7 +168,7 @@ var dogObject = (function() {
             event.preventDefault();
             $('main').addClass('home');
             $('a').removeClass('active');
-            $('.hero, .searchbar').remove();
+            $('.hero, .searchbar, .error-container').remove();
             $('.handlebar').empty().removeClass('active');
             $('.navbar').removeClass('active');
             window.location.hash = 'home';
