@@ -14,6 +14,7 @@ Petsy utilized Petfinder and Etsy APIs to create an online petshop.
 * Sass
 * JavaScript
 * Handlebars
+* jQuery
 
 #### Iron Yard Homework
 * [Week 1 - Basic Form Design](https://github.com/lindsma/basicFormDesign)
