@@ -10,10 +10,10 @@ Build a single page website utilizing HTML, Sass, and JavaScript. The site must 
 Petsy utilized Petfinder and Etsy APIs to create an online petshop. 
 
 #### Languages/Tools: 
-HTML5
-Sass
-JavaScript
-Handlebars
+* HTML5
+* Sass
+* JavaScript
+* Handlebars
 
 #### Iron Yard Homework
 * [Week 1 - Basic Form Design](https://github.com/lindsma/basicFormDesign)
