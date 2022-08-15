@@ -2,7 +2,7 @@ var dogObject = (function() {
     // call petfinder API
     function getPetfinder(context) {
         // petfinder user info
-        var apiKey = '0832500a5ec7269caa8dc84a045e3995';
+        var apiKey = '';
         var city = context.city;
         var state = context.state;
         var breed = context.breed;
@@ -27,7 +27,7 @@ var dogObject = (function() {
     }
     // call etsy API
     function getEtsy(searchTerms) {
-        var api_key = "qkz6z22t3gggikbdmjsx4x4k";
+        var api_key = "";
         var terms = searchTerms;
         var etsyURL = 'https://openapi.etsy.com/v2/listings/active.js?category=pets&tags=dog&keywords=dog  ' + searchTerms + '&limit=12&includes=Images:1&api_key=' + api_key;
         $.ajax({
